@@ -1,0 +1,143 @@
+nz-header {
+  padding: 0;
+  width: 100%;
+  z-index: 2;
+  background: #fff;
+}
+
+nz-layout {
+  z-index: 1000;
+}
+
+nz-list {
+  width: 300px;
+}
+
+// set sider width and  non-display in mobile
+nz-sider {
+  max-width: 300px !important;
+}
+
+@media only screen and (max-width: 600px) {
+  nz-sider {
+    display: none;
+  }
+}
+
+.app-header {
+  height: 64px;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+}
+
+.navbar {
+  div {
+    cursor: pointer;
+  }
+
+  .nav-link {
+    color: rgba(0, 0, 0, 0.65) !important;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0;
+  }
+}
+
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.noti-icon {
+  font-size: 18px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+}
+
+::ng-deep {
+  .ant-layout-sider-light {
+    border-right: .75px solid #ced3d78c;
+  }
+
+  .ant-drawer-header {
+    padding: 8px 12px;
+  }
+
+  .ant-drawer-body {
+    padding: 0;
+  }
+
+  .ant-layout-footer {
+    text-align: end;
+    padding: 0 24px;
+  }
+}
+
+.sidebar-logo {
+  position: relative;
+  height: 64px;
+  line-height: 64px;
+  transition: all .3s;
+  text-align: center;
+  box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
+  margin-bottom: 24px;
+
+  img {
+    height: 50px;
+  }
+}
+
+.footer-logo {
+  position: relative;
+  height: 64px;
+  overflow: hidden;
+  line-height: 64px;
+  transition: all .3s;
+
+  img {
+    display: inline-block;
+    height: 42px;
+    width: 42px;
+    vertical-align: middle;
+  }
+
+}
+
+.drawer-logo {
+  position: relative;
+  height: 48px;
+  overflow: hidden;
+  line-height: 48px;
+  transition: all .3s;
+
+  img {
+    display: inline-block;
+    height: 40px;
+  }
+}
+
+.close-icon {
+  padding: 14px 8px;
+  font-size: 16px;
+  font-weight: 900;
+  color: #595959;
+}

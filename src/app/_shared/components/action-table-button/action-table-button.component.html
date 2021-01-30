@@ -1,0 +1,17 @@
+<div class="text-center">
+  <a (click)="onView()">
+    <span nz-typography>
+      <i nz-icon nzType="eye" nzTheme="outline"></i>
+    </span>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a (click)="onEdit()">
+    <i nz-icon nzType="edit" nzTheme="outline"></i>
+  </a>
+  <nz-divider nzType="vertical"></nz-divider>
+  <a (nzOnConfirm)="onDelete()">
+    <span nz-typography nzType="danger">
+      <i nz-icon nzType="delete" nzTheme="outline"></i>
+    </span>
+  </a>
+</div>

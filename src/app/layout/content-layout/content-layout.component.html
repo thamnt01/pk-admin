@@ -1,0 +1,112 @@
+<nz-layout style="min-height: 100vh;">
+  <!-- sidebar md display -->
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null" nzWidth="256px" nzTheme="light">
+    <!-- sidebar logo -->
+    <div class="sidebar-logo fixed-sidebar">
+      <a routerLink="">
+        <img src="/assets/images/logo/logonotext.png" alt="logo">
+      </a>
+    </div>
+    <!-- /sidebar logo -->
+    <!-- sidebar content -->
+    <ul nz-menu nzMode="inline" nzTheme="light">
+      <ng-container *ngFor="let item of menues">
+        <li class="drawer-sidebar" nz-submenu [nzTitle]="item.name" [nzIcon]="item.icon" nzSelected>
+          <ul>
+            <ng-container *ngFor="let child of item.children">
+              <li nz-menu-item>
+                <a [routerLink]="child.link" class="nav-link"><i nz-icon [nzType]="child.icon" nzTheme="outline"
+                    class=""></i>
+                  <span class="icon">{{ child.name }}</span>
+                </a>
+              </li>
+            </ng-container>
+          </ul>
+        </li>
+      </ng-container>
+    </ul>
+    <!-- /sidebar content -->
+  </nz-sider>
+  <!-- /sidebar md display -->
+  <nz-layout>
+    <!-- main navbar -->
+    <nz-header>
+      <div class="app-header d-flex align-items-center">
+        <!-- drawer sidebar button mobile display-->
+        <div class="me-auto d-md-none" (click)=" open()">
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+        </div>
+        <!-- /drawer sidebar button mobile display -->
+        <!-- collapse sidebar button md display -->
+        <div class="me-auto d-none d-md-flex ">
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            (click)="isCollapsed = !isCollapsed"></i>
+        </div>
+        <!-- /collapse sidebar button md  display-->
+        <!-- nav list -->
+        <div class="me-5 navbar d-none d-lg-inline-flex navbar">
+          <!-- order -->
+          <div class="px-2 ">
+            <i class="hot-pink mx-2" nz-icon nzType="plus-circle" nzTheme="outline"></i>
+            <span class="hot-pink">Tạo đơn</span>
+          </div>
+          <!-- /order -->
+          <!-- revenue -->
+          <div class="px-2 ">
+            <i class="hot-pink mx-2" nz-icon nzType="dollar" nzTheme="outline"></i>
+            <span class="hot-pink">Doanh thu</span>
+          </div>
+          <!-- /revenue -->
+        </div>
+        <!-- nav list -->
+      </div>
+    </nz-header>
+    <!-- /main navbar -->
+    <nz-content>
+      <div class="inner-content m-md-3">
+        <div class="p-0 p-md-2">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </nz-content>
+    <!-- footer  -->
+    <nz-footer>
+      <a [routerLink]="['/']" class="footer-logo">
+        <img src="/assets/images/logo/logo.png" alt="logo">
+      </a>
+    </nz-footer>
+    <!-- /footer  -->
+  </nz-layout>
+</nz-layout>
+<!-- sidebar drawer mobile -->
+<nz-drawer [nzClosable]="false" [nzVisible]="visible" nzPlacement="left" [nzTitle]="title" (nzOnClose)="close()">
+  <ng-template #title>
+    <!-- sidebar drawer header -->
+    <div class="drawer-logo fixed-sidebar">
+      <a [routerLink]="['/']" class="d-flex">
+        <img class="me-auto" src="assets/images/logo/logonotext.png" alt="logo">
+        <i class="close-icon" nz-icon nzType="arrow-left" nzTheme="outline" (click)="clickMe()"></i>
+      </a>
+    </div>
+    <!-- /sidebar drawer header -->
+  </ng-template>
+  <!-- /sidebar drawer body -->
+  <ul nz-menu nzMode="inline" nzTheme="light" class="w-100">
+    <ng-container *ngFor="let item of menues">
+      <li class="drawer-sidebar" nz-submenu [nzTitle]="item.name" [nzIcon]="item.icon" nzSelected>
+        <ul>
+          <ng-container *ngFor="let child of item.children">
+            <li nz-menu-item>
+              <a [routerLink]="child.link" class="nav-link"><i nz-icon [nzType]="child.icon" nzTheme="outline"
+                  class=""></i>
+                <span class="icon">{{ child.name }}</span>
+              </a>
+            </li>
+          </ng-container>
+        </ul>
+      </li>
+    </ng-container>
+  </ul>
+  <!-- /sidebar drawer body -->
+</nz-drawer>
+<!-- /sidebar drawer mobile -->

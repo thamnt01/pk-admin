@@ -1,0 +1,22 @@
+<h2><i nz-icon nzType="edit" nzTheme="outline"></i> Tạo sản phẩm gốc</h2>
+<action-button></action-button>
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th>Mã gốc</th>
+      <th>Giá</th>
+      <th class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.name }}</td>
+      <td>{{ data.code }}</td>
+      <td>{{ data.price }}</td>
+      <td class="text-center">
+        <action-table-button></action-table-button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
