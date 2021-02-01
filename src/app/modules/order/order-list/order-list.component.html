@@ -1,0 +1,28 @@
+<h2><i nz-icon nzType="edit" nzTheme="outline"></i> Nhập đơn hàng</h2>
+<action-button></action-button>
+<nz-table #basicTable [nzData]="listOfData">
+  <thead>
+    <tr>
+      <th>Mã đơn hàng</th>
+      <th>Tên</th>
+      <th>Kênh bán</th>
+      <th>Tổng tiền</th>
+      <th>Đã thanh toán</th>
+      <th>Trạng thái đơn hàng</th>
+      <th class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.code }}</td>
+      <td>{{ data.clientName }}</td>
+      <td>{{ data.channel }}</td>
+      <td>{{ data.totalPrice }}</td>
+      <td>{{ data.payment }}</td>
+      <td>{{ data.status }}</td>
+      <td class="text-center">
+        <action-table-button></action-table-button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

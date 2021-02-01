@@ -19,12 +19,12 @@ export class ContentLayoutComponent implements OnInit {
       children: [
         {
           name: 'Nhập đơn hàng',
-          link: '',
+          link: '/order',
           icon: 'edit',
         },
         {
           name: 'Nhập hàng',
-          link: '',
+          link: '/import-product',
           icon: 'plus-circle',
         }
       ]
