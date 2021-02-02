@@ -34,8 +34,8 @@ export class ContentLayoutComponent implements OnInit {
           icon: 'book',
         },
         {
-          name: 'Doanh thu',
-          link: '',
+          name: 'Báo cáo',
+          link: '/report',
           icon: 'area-chart',
         }
       ]
