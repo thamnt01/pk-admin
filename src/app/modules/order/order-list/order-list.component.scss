@@ -1,0 +1,17 @@
+.invoice {
+  line-height: 28px;
+
+  .data-info {
+    font-weight: 600;
+  }
+
+  .info-detail {
+    min-width: 180px;
+    text-align: start;
+  }
+
+  .note {
+    font-weight: 500;
+    margin: 16px 0;
+  }
+}

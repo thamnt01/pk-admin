@@ -22,11 +22,6 @@ export class ContentLayoutComponent implements OnInit {
           link: '/order',
           icon: 'edit',
         },
-        {
-          name: 'Nhập hàng',
-          link: '/import-product',
-          icon: 'plus-circle',
-        }
       ]
     },
     {

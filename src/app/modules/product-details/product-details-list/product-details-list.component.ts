@@ -12,18 +12,23 @@ export class ProductDetailsListComponent implements OnInit {
       zoomImage: '/assets/images/logo/logo.png',
       code: 'V1',
       type: 'Vàng',
+      amount: '15',
     },
     {
       thumbImage: '/assets/images/logo/logo.png',
       zoomImage: '/assets/images/logo/logo.png',
       code: 'V1',
       type: 'Vàng',
+      amount: '15',
+
     },
     {
       thumbImage: '/assets/images/logo/logo.png',
       zoomImage: '/assets/images/logo/logo.png',
       code: 'V1',
       type: 'Vàng',
+      amount: '15',
+
     }
   ];
   constructor() { }

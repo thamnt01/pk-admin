@@ -17,7 +17,7 @@
       <td>{{ data.code }}</td>
       <td>{{ data.clientName }}</td>
       <td>{{ data.channel }}</td>
-      <td>{{ data.totalPrice }}</td>
+      <td>{{ data.totalPayment }}</td>
       <td>{{ data.payment }}</td>
       <td>{{ data.status }}</td>
       <td class="text-center">
@@ -26,3 +26,102 @@
     </tr>
   </tbody>
 </nz-table>
+
+<button nz-button [nzType]="'primary'" (click)="showModal()"><span>Show Modal</span></button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Thông tin chi tiết đơn hàng" (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <div *ngFor="let item of orders">
+      <div class="invoice">
+        <div class="d-flex">
+          <div class="info-detail">Mã đơn hàng:</div>
+          <div class="text-danger">{{ item.code }}</div>
+        </div>
+        <div class="d-flex">
+          <div class="info-detail">Tên khách hàng:</div>
+          <div>{{ item.clientName }}</div>
+        </div>
+        <div class="d-flex">
+          <div class="info-detail">Kênh bán:</div>
+          <div>{{ item.channel }}</div>
+        </div>
+        <h3 class="py-3">Chi tiết đơn hàng</h3>
+        <nz-table nzShowPagination="false" #basicTable [nzData]="item.children">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th nzWidth="80%">Sản phẩm</th>
+              <th>Số lượng</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of basicTable.data">
+              <td>1</td>
+              <td>{{ data.productCode }} - {{data.productName}}: {{ data.productType }}</td>
+              <td>{{ data.amount }}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+        <div class="d-flex justify-content-between pt-3">
+          <div>Tổng tiền:</div>
+          <div>{{ item.totalPrice }}</div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>Discount:</div>
+          <div>{{ item.discount }}</div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>Đã thanh toán:</div>
+          <div>{{ item.payment }}</div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>Tổng thanh toán:</div>
+          <div class="text-danger">{{ item.totalPayment }}</div>
+        </div>
+        <p class="note">{{ item.note }}</p>
+      </div>
+    </div>
+    <!-- <nz-table #basicTable [nzData]="orders">
+      <thead>
+        <tr>
+          <th>Mã đơn hàng</th>
+          <th>Tên</th>
+          <th>Kênh bán</th>
+          <th>Mã sản phẩm</th>
+          <th>Tổng tiền</th>
+          <th>Chiết khấu</th>
+          <th>Tổng thanh toán</th>
+          <th>Đã thanh toán</th>
+          <th>Trạng thái đơn hàng</th>
+          <th>Ghi chú</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.code }}</td>
+          <td>{{ data.clientName }}</td>
+          <td>{{ data.channel }}</td>
+          <td>{{ data.productCode }} {{ data.amount }}</td>
+          <td>{{ data.totalPrice }}</td>
+          <td>{{ data.discount }}</td>
+          <td>{{ data.totalPayment }}</td>
+          <td>{{ data.payment }}</td>
+          <td>{{ data.status }}</td>
+          <td>{{ data.note }}</td>
+          <td class="text-center">
+            <a (click)="onEdit()">
+              <i nz-icon nzType="edit" nzTheme="outline"></i>
+            </a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a (nzOnConfirm)="onDelete()">
+              <span nz-typography nzType="danger">
+                <i nz-icon nzType="delete" nzTheme="outline"></i>
+              </span>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table> -->
+  </ng-container>
+</nz-modal>
