@@ -30,7 +30,7 @@ export class ContentLayoutComponent implements OnInit {
       children: [
         {
           name: 'Sổ quỹ',
-          link: '',
+          link: '/cash-book',
           icon: 'book',
         },
         {

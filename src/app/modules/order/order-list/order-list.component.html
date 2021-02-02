@@ -1,6 +1,6 @@
 <h2><i nz-icon nzType="edit" nzTheme="outline"></i> Nhập đơn hàng</h2>
 <action-button></action-button>
-<nz-table #basicTable [nzData]="listOfData">
+<nz-table #basicTable [nzData]="orders">
   <thead>
     <tr>
       <th>Mã đơn hàng</th>
@@ -42,6 +42,14 @@
           <div>{{ item.clientName }}</div>
         </div>
         <div class="d-flex">
+          <div class="info-detail">Số điện thoại:</div>
+          <div>{{ item.phone }}</div>
+        </div>
+        <div class="d-flex">
+          <div class="info-detail">Địa chỉ:</div>
+          <div>{{ item.address }}</div>
+        </div>
+        <div class="d-flex">
           <div class="info-detail">Kênh bán:</div>
           <div>{{ item.channel }}</div>
         </div>
@@ -81,47 +89,5 @@
         <p class="note">{{ item.note }}</p>
       </div>
     </div>
-    <!-- <nz-table #basicTable [nzData]="orders">
-      <thead>
-        <tr>
-          <th>Mã đơn hàng</th>
-          <th>Tên</th>
-          <th>Kênh bán</th>
-          <th>Mã sản phẩm</th>
-          <th>Tổng tiền</th>
-          <th>Chiết khấu</th>
-          <th>Tổng thanh toán</th>
-          <th>Đã thanh toán</th>
-          <th>Trạng thái đơn hàng</th>
-          <th>Ghi chú</th>
-          <th class="text-center">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.code }}</td>
-          <td>{{ data.clientName }}</td>
-          <td>{{ data.channel }}</td>
-          <td>{{ data.productCode }} {{ data.amount }}</td>
-          <td>{{ data.totalPrice }}</td>
-          <td>{{ data.discount }}</td>
-          <td>{{ data.totalPayment }}</td>
-          <td>{{ data.payment }}</td>
-          <td>{{ data.status }}</td>
-          <td>{{ data.note }}</td>
-          <td class="text-center">
-            <a (click)="onEdit()">
-              <i nz-icon nzType="edit" nzTheme="outline"></i>
-            </a>
-            <nz-divider nzType="vertical"></nz-divider>
-            <a (nzOnConfirm)="onDelete()">
-              <span nz-typography nzType="danger">
-                <i nz-icon nzType="delete" nzTheme="outline"></i>
-              </span>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table> -->
   </ng-container>
 </nz-modal>

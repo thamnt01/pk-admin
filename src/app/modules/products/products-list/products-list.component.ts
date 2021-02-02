@@ -10,21 +10,25 @@ export class ProductsListComponent implements OnInit {
     {
       code: 'FB',
       name: 'Flower Blossom',
+      amount: '45',
       price: '30,000đ',
     },
     {
       code: 'NT',
       name: 'Night Star',
+      amount: '45',
       price: '50,000đ',
     },
     {
       code: 'NT',
       name: 'Night Star',
+      amount: '45',
       price: '50,000đ',
     },
     {
       code: 'FB',
       name: 'Flower Blossom',
+      amount: '45',
       price: '30,000đ',
     },
   ];
