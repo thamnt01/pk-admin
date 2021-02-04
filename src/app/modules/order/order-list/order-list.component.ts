@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements OnInit {
+  radioValue = 'A';
   isVisible = false;
+  isDisplay = false;
   orders = [
     {
       code: 'IT04',
@@ -37,6 +39,9 @@ export class OrderListComponent implements OnInit {
   showModal(): void {
     this.isVisible = true;
   }
+  showAnotherModal(): void {
+    this.isDisplay = true;
+  }
 
   handleOk(): void {
     console.log('Button ok clicked!');
@@ -46,6 +51,14 @@ export class OrderListComponent implements OnInit {
   handleCancel(): void {
     console.log('Button cancel clicked!');
     this.isVisible = false;
+  }
+  handleAnotherCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isDisplay = false;
+  }
+  handleAnotherOk(): void {
+    console.log('Button ok clicked!');
+    this.isDisplay = false;
   }
   onEdit() {
 

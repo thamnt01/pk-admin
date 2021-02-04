@@ -29,26 +29,21 @@ export class ContentLayoutComponent implements OnInit {
       icon: 'file-done',
       children: [
         {
+          name: 'Báo cáo',
+          link: '/report',
+          icon: 'area-chart',
+        },
+        {
           name: 'Sổ quỹ',
           link: '/cash-book',
           icon: 'book',
         },
-        {
-          name: 'Báo cáo',
-          link: '/report',
-          icon: 'area-chart',
-        }
       ]
     },
     {
-      name: 'Tạo thẻ sản phẩm',
+      name: 'Nhập hàng',
       icon: 'form',
       children: [
-        {
-          name: 'Danh mục',
-          link: '/category',
-          icon: 'partition'
-        },
         {
           name: 'Sản phẩm',
           link: '/products',
@@ -59,6 +54,11 @@ export class ContentLayoutComponent implements OnInit {
           link: '/product-details',
           icon: 'profile'
         },
+        {
+          name: 'Danh mục',
+          link: '/category',
+          icon: 'partition'
+        },
       ]
     },
     {
@@ -66,20 +66,10 @@ export class ContentLayoutComponent implements OnInit {
       icon: 'highlight',
       children: [
         {
-          name: 'Bài viết',
-          link: '/',
-          icon: 'laptop'
-        },
-        {
           name: 'Ảnh slide',
-          link: '/',
+          link: '/carousel',
           icon: 'picture'
         },
-        {
-          name: 'Thông tin thanh toán',
-          link: '/',
-          icon: 'qrcode'
-        }
       ]
     },
   ]

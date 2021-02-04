@@ -6,6 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cash-book-list.component.scss']
 })
 export class CashBookListComponent implements OnInit {
+  listOfData = [
+    {
+      code: 'MT123',
+      date: '22/02/2013',
+      title: 'Chi abcxyz',
+      person: 'Hoan',
+      value: '30,000đ',
+      method: 'Tiền mặt',
+      finalization: 'Hoàn thành',
+      note: 'Chi tiền quảng cáo dịch vụ marketing Facebook'
+    },
+    {
+      code: 'MT123',
+      date: '22/02/2013',
+      title: 'Chi marketing',
+      person: 'Thắm',
+      value: '30,000,000đ',
+      method: 'Thẻ',
+      finalization: 'Hoàn thành',
+    }
+  ];
   items = [
     {
       importDate: '26/02/2002',

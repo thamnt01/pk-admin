@@ -42,6 +42,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./modules/report/report.module').then(m => m.ReportModule)
       },
+      {
+        path: 'carousel',
+        loadChildren: () =>
+          import('./modules/carousel/carousel.module').then(m => m.CarouselModule)
+      },
     ]
   }];
 

@@ -14,3 +14,18 @@
   font-size: 18px;
   font-weight: 500;
 }
+
+.data {
+  label {
+    color: #0e83ad;
+    font-weight: 500;
+  }
+}
+
+:host ::ng-deep .ant-card-body {
+  padding: 12px 0;
+}
+
+nz-card {
+  border: 1px solid #e8e8e8;
+}

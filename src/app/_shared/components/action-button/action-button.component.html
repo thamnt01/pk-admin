@@ -1,6 +1,16 @@
- <div class=" d-flex justify-content-end justify-content-md-start justify-content-lg-end">
-   <button class="me-2" (click)="dispatch('refresh')" nz-button nzType="default"><i nz-icon nzType="redo"
-       class="icon"></i>Refresh</button>
-   <button class="me-md-2 mb-3 mb-md-0" (click)="dispatch('create')" nz-button nzType="primary"><i nz-icon
-       nzType="plus-circle" class="icon"></i>Thêm mới</button>
+ <div class="row justify-content-lg-between">
+   <div class="col">
+     <nz-input-group [nzSuffix]="suffixIconSearch">
+       <input type="text" nz-input placeholder="Nhập từ khóa tìm kiếm" />
+     </nz-input-group>
+     <ng-template #suffixIconSearch>
+       <i nz-icon nzType="search"></i>
+     </ng-template>
+   </div>
+   <div class="col d-flex justify-content-end justify-content-md-start justify-content-lg-end">
+     <button class="me-3 btn" (click)="dispatch('create')" nz-button nzType="primary"><i nz-icon nzType="plus-circle"
+         class="icon"></i>Thêm mới</button>
+     <button class=" btn" (click)="dispatch('refresh')" nz-button nzType="default"><i nz-icon nzType="redo"
+         class="icon"></i>Refresh</button>
+   </div>
  </div>

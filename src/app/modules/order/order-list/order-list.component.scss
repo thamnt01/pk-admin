@@ -15,3 +15,23 @@
     margin: 16px 0;
   }
 }
+
+.payment-price {
+  color: #c20306;
+  font-weight: 500;
+}
+
+.price {
+  color: #007bff;
+  font-weight: 500;
+}
+
+nz-form-label {
+  min-width: 120px;
+  text-align: start;
+}
+
+nz-form-control {
+  border-radius: 6px;
+  min-height: 36px;
+}

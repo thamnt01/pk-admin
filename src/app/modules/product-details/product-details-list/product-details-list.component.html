@@ -1,24 +1,26 @@
 <h2><i nz-icon nzType="edit" nzTheme="outline"></i> Tạo danh mục sản phẩm</h2>
 <action-button></action-button>
-<nz-table #basicTable [nzData]="listOfData">
-  <thead>
-    <tr>
-      <th>Ảnh</th>
-      <th>Mã nhánh</th>
-      <th>Tên loại</th>
-      <th>Số lượng</th>
-      <th class="text-center">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let data of basicTable.data">
-      <td><img src="{{ data.thumbImage }}" alt="" width="50px" style="object-fit: cover"></td>
-      <td>{{ data.code }}</td>
-      <td>{{ data.type }}</td>
-      <td>{{ data.amount }}</td>
-      <td class="text-center">
-        <action-table-button></action-table-button>
-      </td>
-    </tr>
-  </tbody>
-</nz-table>
+<div class="mt-5">
+  <nz-table #basicTable [nzData]="listOfData">
+    <thead>
+      <tr>
+        <th>Ảnh</th>
+        <th>Mã nhánh</th>
+        <th>Tên loại</th>
+        <th>Số lượng</th>
+        <th class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td><img src="{{ data.thumbImage }}" alt="" width="50px" style="object-fit: cover"></td>
+        <td>{{ data.code }}</td>
+        <td>{{ data.type }}</td>
+        <td>{{ data.amount }}</td>
+        <td class="text-center">
+          <action-table-button></action-table-button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
