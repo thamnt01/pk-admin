@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories-list.component.scss']
 })
 export class CategoriesListComponent implements OnInit {
+  isDisplay = false;
   listOfData: string[] = [
     'Phụ kiện tóc',
     'Khuyên tai',
@@ -22,5 +23,15 @@ export class CategoriesListComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  showAnotherModal(): void {
+    this.isDisplay = true;
+  }
+  handleAnotherCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isDisplay = false;
+  }
+  handleAnotherOk(): void {
+    console.log('Button ok clicked!');
+    this.isDisplay = false;
+  }
 }

@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-details-list.component.scss']
 })
 export class ProductDetailsListComponent implements OnInit {
+  isDisplay = false;
   listOfData = [
     {
       thumbImage: '/assets/images/logo/logo.png',
@@ -35,5 +36,15 @@ export class ProductDetailsListComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  showAnotherModal(): void {
+    this.isDisplay = true;
+  }
+  handleAnotherCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isDisplay = false;
+  }
+  handleAnotherOk(): void {
+    console.log('Button ok clicked!');
+    this.isDisplay = false;
+  }
 }

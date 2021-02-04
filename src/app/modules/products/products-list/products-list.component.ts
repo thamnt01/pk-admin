@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
+  isDisplay = false;
   listOfData = [
     {
       code: 'FB',
@@ -35,6 +36,18 @@ export class ProductsListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  showAnotherModal(): void {
+    this.isDisplay = true;
+  }
+  handleAnotherCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isDisplay = false;
+  }
+  handleAnotherOk(): void {
+    console.log('Button ok clicked!');
+    this.isDisplay = false;
   }
 
 }

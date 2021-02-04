@@ -30,3 +30,62 @@
   </nz-table>
 
 </div>
+
+<button nz-button [nzType]="'primary'" (click)="showAnotherModal()"><span>Show Form</span></button>
+<nz-modal nzWidth="75%" [(nzVisible)]="isDisplay" nzTitle="Nhập đơn hàng" (nzOnCancel)="handleAnotherCancel()"
+  (nzOnOk)="handleAnotherOk()">
+  <ng-container *nzModalContent>
+    <div>
+      <form class="row">
+        <div class="col-12 col-md-6">
+          <nz-form-item>
+            <nz-form-label nzRequired>Tên</nz-form-label>
+            <nz-form-control>
+              <input nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-12 col-md-6">
+          <nz-form-item>
+            <nz-form-label nzRequired>Mã gốc</nz-form-label>
+            <nz-form-control>
+              <input nz-input>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-12 col-md-6">
+          <nz-form-item>
+            <nz-form-label nzRequired>Tồn kho</nz-form-label>
+            <nz-form-control>
+              <nz-input-number style="width:100%;"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-12 col-md-6">
+          <nz-form-item>
+            <nz-form-label nzRequired>Giá vốn</nz-form-label>
+            <nz-form-control>
+              <nz-input-number style="width:100%;"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-12 col-md-6">
+          <nz-form-item>
+            <nz-form-label nzRequired>Giá phát sinh</nz-form-label>
+            <nz-form-control>
+              <nz-input-number style="width:100%;"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div class="col-12 col-md-6">
+          <nz-form-item>
+            <nz-form-label nzRequired>Giá bán</nz-form-label>
+            <nz-form-control>
+              <nz-input-number style="width:100%;"></nz-input-number>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</nz-modal>

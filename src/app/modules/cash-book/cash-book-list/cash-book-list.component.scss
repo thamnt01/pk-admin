@@ -29,3 +29,21 @@
 nz-card {
   border: 1px solid #e8e8e8;
 }
+
+.plus-data {
+  // margin: 16px 0 0 0;
+  max-height: 28px;
+  color: white;
+  background-color: #0e83ad;
+  border: 0 solid;
+  border-radius: 6px;
+
+  i {
+    margin-right: 8px;
+  }
+}
+
+nz-form-label {
+  min-width: 120px;
+  text-align: start;
+}
