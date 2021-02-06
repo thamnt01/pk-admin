@@ -177,6 +177,17 @@
             </nz-form-control>
           </nz-form-item>
         </div>
+        <div class="col-12 col-md-4">
+          <nz-form-item>
+            <nz-form-label nzRequired>Phí ship thực</nz-form-label>
+            <nz-form-control>
+              <nz-select [ngModel]="'Option1'" [ngModelOptions]="{standalone: true}">
+                <nz-option [nzLabel]="'25,000đ'" [nzValue]="'Option1'"></nz-option>
+                <nz-option [nzLabel]="'0đ'" [nzValue]="'Option2'"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
         <div class="col-12 col-md-4 d-flex justify-content-end">
           <div> Thanh toán: <span class="payment-price ms-md-2">20,000đ</span></div>
         </div>
