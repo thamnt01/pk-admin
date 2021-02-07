@@ -4,12 +4,14 @@ import { SharedModule } from 'src/app/_shared/shared.module';
 import { OrderRoutes } from './order.routing';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderModalComponent } from './order-modal/order-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     OrderRoutes,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   declarations: [
     OrderListComponent,

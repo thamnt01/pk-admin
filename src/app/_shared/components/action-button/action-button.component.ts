@@ -1,20 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'action-button',
   templateUrl: './action-button.component.html',
   styleUrls: ['./action-button.component.scss']
 })
-export class ActionButtonComponent implements OnInit {
+export class ActionButtonComponent {
 
-  constructor() { }
+  @Output() dispatch = new EventEmitter<[string, any]>();
 
-  ngOnInit() {
+  onDispatch(action: string, data?: any) {
+    this.dispatch.emit([action, data]);
   }
-
-  dispatch(action: string) {
-    console.log(action);
-
-  }
-
 }

@@ -4,12 +4,14 @@ import { CategoriesListComponent } from './categories-list/categories-list.compo
 import { CategoriesModalComponent } from './categories-modal/categories-modal.component';
 import { SharedModule } from 'src/app/_shared/shared.module';
 import { CategoryRoutes } from './category.routing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    CategoryRoutes
+    CategoryRoutes,
+    ReactiveFormsModule
   ],
   declarations: [
     CategoriesListComponent,

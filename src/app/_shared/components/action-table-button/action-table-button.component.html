@@ -1,17 +1,16 @@
 <div class="text-center">
-  <a (click)="onView()">
+  <button class="mx-2" *ngIf="allows.includes('view')" (click)="onDispatch('view')">
     <span nz-typography>
       <i nz-icon nzType="eye" nzTheme="outline"></i>
     </span>
-  </a>
-  <nz-divider nzType="vertical"></nz-divider>
-  <a (click)="onEdit()">
+  </button>
+  <button class="mx-2 primary" *ngIf="allows.includes('edit')" (click)="onDispatch('edit')">
     <i nz-icon nzType="edit" nzTheme="outline"></i>
-  </a>
-  <nz-divider nzType="vertical"></nz-divider>
-  <a (nzOnConfirm)="onDelete()">
+  </button>
+  <button class="mx-2" *ngIf="allows.includes('delete')" nz-popconfirm nzPopconfirmTitle="Bạn chắc chắn muốn xóa chứ?"
+    (nzOnConfirm)="onDispatch('delete')">
     <span nz-typography nzType="danger">
       <i nz-icon nzType="delete" nzTheme="outline"></i>
     </span>
-  </a>
+  </button>
 </div>

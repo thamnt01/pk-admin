@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { OrderModalComponent } from '../order-modal/order-modal.component';
 
 @Component({
   selector: 'app-order-list',
@@ -12,7 +14,7 @@ export class OrderListComponent implements OnInit {
   orders = [
     {
       code: 'IT04',
-      clientName: 'Hữu D',
+      name: 'Hữu D',
       phone: '012345678',
       address: 'Số 9 ngõ 159 Triều khúc, Thanh Xuân, hà Nội',
       channel: 'Website',
@@ -32,15 +34,48 @@ export class OrderListComponent implements OnInit {
       ]
     },
   ]
-  constructor() { }
+  constructor(private modal: NzModalService) { }
 
   ngOnInit() {
   }
-  showModal(): void {
-    this.isVisible = true;
+  createModal(value?: any): void {
+    const modal = this.modal.create({
+      nzTitle: 'Tạo đơn hàng',
+      nzContent: OrderModalComponent,
+      nzFooter: null,
+      nzClassName: 'modal-md',
+    });
+    const instance = modal.getContentComponent();
+    modal.afterClose.subscribe(result => {
+      if (result !== undefined) {
+        if (value) {
+          const index = this.orders.indexOf(value);
+          this.orders[index] = result;
+          this.orders = [...this.orders]
+        } else {
+          this.orders = [result, ...this.orders]
+        }
+      }
+    })
   }
-  showAnotherModal(): void {
-    this.isDisplay = true;
+  onDispatch(event: [string, any]) {
+    const [action, data] = event;
+    switch (action) {
+      case 'create':
+        this.createModal();
+        break;
+      case 'refresh':
+        console.log('Tao làm gì kệ tao');
+        break;
+      case 'delete':
+        this.orders = this.orders.filter(x => x !== data);
+        break;
+      case 'view':
+        this.isVisible = true;
+        break;
+      default:
+        break;
+    }
   }
 
   handleOk(): void {
@@ -52,16 +87,4 @@ export class OrderListComponent implements OnInit {
     console.log('Button cancel clicked!');
     this.isVisible = false;
   }
-  handleAnotherCancel(): void {
-    console.log('Button cancel clicked!');
-    this.isDisplay = false;
-  }
-  handleAnotherOk(): void {
-    console.log('Button ok clicked!');
-    this.isDisplay = false;
-  }
-  onEdit() {
-
-  }
-  onDelete() { }
 }

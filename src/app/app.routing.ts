@@ -1,4 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
+import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 
 const routes: Routes = [
@@ -28,11 +29,6 @@ const routes: Routes = [
           import('./modules/order/order.module').then(m => m.OrderModule)
       },
       {
-        path: 'import-product',
-        loadChildren: () =>
-          import('./modules/import-product/import-product.module').then(m => m.ImportProductModule)
-      },
-      {
         path: 'cash-book',
         loadChildren: () =>
           import('./modules/cash-book/cash-book.module').then(m => m.CashBookModule)
@@ -48,6 +44,18 @@ const routes: Routes = [
           import('./modules/carousel/carousel.module').then(m => m.CarouselModule)
       },
     ]
-  }];
+  },
+  {
+    path: '',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: 'login',
+        loadChildren: () =>
+          import('./modules/auth/login/login.module').then(m => m.LoginModule)
+      },
+    ]
+  }
+];
 
 export const AppRoutes = RouterModule.forRoot(routes);
