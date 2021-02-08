@@ -19,7 +19,7 @@ export class CategoriesModalComponent implements OnInit {
   ngOnInit() {
   }
   handleOk() {
-    this.myForm.markAsTouched();
+    this.validateForm(this.myForm);
     if (this.myForm.invalid) {
       return;
     }
@@ -28,5 +28,14 @@ export class CategoriesModalComponent implements OnInit {
   handleCancel() {
     this.modal.destroy()
   }
+  validateForm(form: FormGroup) {
+    form.markAllAsTouched();
+    for (const key in form.controls) {
 
+      form.controls[key].updateValueAndValidity();
+      if (form.controls[key] instanceof FormGroup) {
+        this.validateForm(form.controls[key] as FormGroup);
+      }
+    }
+  }
 }

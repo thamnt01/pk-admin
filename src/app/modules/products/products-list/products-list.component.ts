@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { ProductsModalComponent } from '../products-modal/products-modal.component';
 
 @Component({
   selector: 'app-products-list',
@@ -33,21 +35,46 @@ export class ProductsListComponent implements OnInit {
       price: '30,000đ',
     },
   ];
-  constructor() { }
+  cloneData = [];
+  constructor(private modal: NzModalService) {
+    this.cloneData = this.listOfData.slice()
+  }
 
   ngOnInit() {
   }
-
-  showAnotherModal(): void {
-    this.isDisplay = true;
+  createModal(value?: any): void {
+    const modal = this.modal.create({
+      nzTitle: 'Tạo sản phẩm',
+      nzContent: ProductsModalComponent,
+      nzFooter: null,
+      nzClassName: 'modal-md'
+    });
+    modal.afterClose.subscribe(result => {
+      if (result !== undefined) {
+        if (value) {
+          const index = this.listOfData.indexOf(value);
+          this.listOfData[index] = result;
+          this.listOfData = [...this.listOfData]
+        } else {
+          this.listOfData = [result, ...this.listOfData]
+        }
+      }
+    })
   }
-  handleAnotherCancel(): void {
-    console.log('Button cancel clicked!');
-    this.isDisplay = false;
-  }
-  handleAnotherOk(): void {
-    console.log('Button ok clicked!');
-    this.isDisplay = false;
+  onDispatch(event: [string, any]) {
+    const [action, data] = event;
+    switch (action) {
+      case 'create':
+        this.createModal();
+        break;
+      case 'delete':
+        this.listOfData = this.listOfData.filter(x => x !== data);
+        break;
+      case 'search':
+        this.listOfData = this.cloneData.filter(x => x.name.toLocaleLowerCase().includes(data.toLocaleLowerCase()))
+      default:
+        break;
+    }
   }
 
 }

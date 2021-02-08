@@ -8,18 +8,23 @@ import { OrderModalComponent } from '../order-modal/order-modal.component';
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent implements OnInit {
+  // filterGender = [
+  //   { text: 'Facebook', value: 'Facebook' },
+  //   { text: 'Website', value: 'Website' }
+  // ];
   radioValue = 'A';
   isVisible = false;
-  isDisplay = false;
   orders = [
     {
       code: 'IT04',
       name: 'Hữu D',
-      phone: '012345678',
+      phoneNumber: '012345678',
       address: 'Số 9 ngõ 159 Triều khúc, Thanh Xuân, hà Nội',
       channel: 'Website',
       totalPrice: '200,00đ',
       discount: '20%',
+      shipFee: '30,000đ',
+      realShipFee: '20,000đ',
       totalPayment: '30,000đ',
       payment: '0đ',
       status: 'Hủy',
@@ -33,8 +38,11 @@ export class OrderListComponent implements OnInit {
         }
       ]
     },
-  ]
-  constructor(private modal: NzModalService) { }
+  ];
+  cloneData: any[] = []
+  constructor(private modal: NzModalService) {
+    this.cloneData = this.orders.slice()
+  }
 
   ngOnInit() {
   }
@@ -46,6 +54,7 @@ export class OrderListComponent implements OnInit {
       nzClassName: 'modal-md',
     });
     const instance = modal.getContentComponent();
+    // instance.myForm.patchValue({ name: value });
     modal.afterClose.subscribe(result => {
       if (result !== undefined) {
         if (value) {
@@ -72,6 +81,13 @@ export class OrderListComponent implements OnInit {
         break;
       case 'view':
         this.isVisible = true;
+        break;
+      case 'edit':
+        this.createModal(data);
+        break;
+      case 'search':
+        console.log(this.cloneData)
+        this.orders = this.cloneData.filter(x => x.name.toLocaleLowerCase().includes(data.toLocaleLowerCase()));
         break;
       default:
         break;

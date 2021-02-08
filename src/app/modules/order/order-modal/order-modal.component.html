@@ -1,9 +1,9 @@
  <div>
-   <form [formGroup]="myForm" class="row">
+   <form [formGroup]="myForm" nzLayout="vertical" nz-form class="row">
      <ng-template #message>
        <div>Vui lòng điền thông tin</div>
      </ng-template>
-     <div class="col-12 col-md-7">
+     <div class="col-12 col-lg-7">
        <nz-form-item>
          <nz-form-label nzRequired>Tên</nz-form-label>
          <nz-form-control [nzErrorTip]="message">
@@ -11,7 +11,7 @@
          </nz-form-control>
        </nz-form-item>
      </div>
-     <div class="col-12 col-md-5">
+     <div class="col-12 col-lg-5">
        <nz-form-item>
          <nz-form-label nzRequired>Số điện thoại</nz-form-label>
          <nz-form-control [nzErrorTip]="message">
@@ -32,10 +32,10 @@
          <nz-form-label nzRequired>Kênh bán</nz-form-label>
          <nz-form-control [nzErrorTip]="message">
            <nz-radio-group formControlName="channel">
-             <label nz-radio nzValue="A">Facebook</label>
-             <label nz-radio nzValue="B">Website</label>
-             <label nz-radio nzValue="C">Shopee</label>
-             <label nz-radio nzValue="D">Instagram</label>
+             <label nz-radio nzValue="Facebook">Facebook</label>
+             <label nz-radio nzValue="Website">Website</label>
+             <label nz-radio nzValue="Shopee">Shopee</label>
+             <label nz-radio nzValue="Instagram">Instagram</label>
            </nz-radio-group>
          </nz-form-control>
        </nz-form-item>
@@ -46,10 +46,10 @@
          <input type="text" nz-input />
        </nz-form-control>
      </nz-form-item>
-     <div class=" col-12 d-flex justify-content-end my-2">
+     <div class="col-12 d-flex justify-content-end my-2">
        <div>Tổng tiền hàng: <span class="price  ms-md-2">20,000đ</span></div>
      </div>
-     <div class="col-12 col-md-4">
+     <div class="col-12 col-lg-4">
        <nz-form-item>
          <nz-form-label nzRequired>Chiết khấu</nz-form-label>
          <nz-form-control [nzErrorTip]="message">
@@ -60,7 +60,7 @@
          </nz-form-control>
        </nz-form-item>
      </div>
-     <div class="col-12 col-md-4">
+     <div class="col-12 col-lg-4">
        <nz-form-item>
          <nz-form-label nzRequired>Phí ship</nz-form-label>
          <nz-form-control [nzErrorTip]="message">
@@ -71,14 +71,30 @@
          </nz-form-control>
        </nz-form-item>
      </div>
-     <div class="col-12 col-md-4">
+     <div class="col-12 col-lg-4">
        <nz-form-item>
          <nz-form-label nzRequired>Phí ship thực</nz-form-label>
          <nz-form-control [nzErrorTip]="message">
-           <nz-select formControlName="realShipFee">
-             <nz-option [nzLabel]="'25,000đ'" [nzValue]="'Option1'"></nz-option>
-             <nz-option [nzLabel]="'0đ'" [nzValue]="'Option2'"></nz-option>
-           </nz-select>
+           <nz-input-number formControlName="realShipFee" style="width:100%"></nz-input-number>
+         </nz-form-control>
+       </nz-form-item>
+     </div>
+     <div class="col-12 col-lg-4">
+       <nz-form-item>
+         <nz-form-label nzRequired>Thanh toán</nz-form-label>
+         <nz-form-control [nzErrorTip]="message">
+           <nz-radio-group formControlName="method">
+             <label nz-radio nzValue="COD">COD</label>
+             <label nz-radio nzValue="Online">Online</label>
+           </nz-radio-group>
+         </nz-form-control>
+       </nz-form-item>
+     </div>
+     <div class="col-12 col-lg-8">
+       <nz-form-item>
+         <nz-form-label nzRequired>Đã thanh toán</nz-form-label>
+         <nz-form-control [nzErrorTip]="message">
+           <nz-input-number formControlName="realShipFee" style="width:100%"></nz-input-number>
          </nz-form-control>
        </nz-form-item>
      </div>

@@ -1,10 +1,11 @@
 <h2><i nz-icon nzType="edit" nzTheme="outline"></i> Tạo danh mục sản phẩm</h2>
-<action-button></action-button>
+<action-button (dispatch)="onDispatch($event)"></action-button>
 <div class="mt-5">
   <nz-table #basicTable [nzData]="listOfData">
     <thead>
       <tr>
         <th>Ảnh</th>
+        <th>Tên</th>
         <th>Mã nhánh</th>
         <th>Tên loại</th>
         <th>Số lượng</th>
@@ -14,48 +15,15 @@
     <tbody>
       <tr *ngFor="let data of basicTable.data">
         <td><img src="{{ data.thumbImage }}" alt="" width="50px" style="object-fit: cover"></td>
+        <td>{{ data.name }}</td>
         <td>{{ data.code }}</td>
         <td>{{ data.type }}</td>
         <td>{{ data.amount }}</td>
         <td class="text-center">
-          <action-table-button></action-table-button>
+          <action-table-button [allows]="['edit','delete']" (dispatch)="onDispatch([$event, data])">
+          </action-table-button>
         </td>
       </tr>
     </tbody>
   </nz-table>
 </div>
-
-<button nz-button [nzType]="'primary'" (click)="showAnotherModal()"><span>Show Form</span></button>
-<nz-modal nzWidth="75%" [(nzVisible)]="isDisplay" nzTitle="Nhập đơn hàng" (nzOnCancel)="handleAnotherCancel()"
-  (nzOnOk)="handleAnotherOk()">
-  <ng-container *nzModalContent>
-    <div>
-      <form class="row">
-        <div class="col-12 col-md-6">
-          <nz-form-item>
-            <nz-form-label nzRequired>Mã nhánh</nz-form-label>
-            <nz-form-control>
-              <input nz-input>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div class="col-12 col-md-6">
-          <nz-form-item>
-            <nz-form-label nzRequired>Tên loại</nz-form-label>
-            <nz-form-control>
-              <input nz-input>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-        <div class="col-12 col-md-6">
-          <nz-form-item>
-            <nz-form-label nzRequired>Tồn kho</nz-form-label>
-            <nz-form-control>
-              <nz-input-number style="width:100%;"></nz-input-number>
-            </nz-form-control>
-          </nz-form-item>
-        </div>
-      </form>
-    </div>
-  </ng-container>
-</nz-modal>

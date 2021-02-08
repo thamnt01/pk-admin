@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzModalRef } from 'ng-zorro-antd/modal';
 
 @Component({
-  selector: 'app-order-modal',
-  templateUrl: './order-modal.component.html',
-  styleUrls: ['./order-modal.component.scss']
+  selector: 'app-cash-book-modal',
+  templateUrl: './cash-book-modal.component.html',
+  styleUrls: ['./cash-book-modal.component.scss']
 })
-export class OrderModalComponent implements OnInit {
+export class CashBookModalComponent implements OnInit {
   myForm: FormGroup;
   constructor(
     private modal: NzModalRef,
@@ -15,12 +15,9 @@ export class OrderModalComponent implements OnInit {
   ) {
     this.myForm = this.fb.group({
       name: ['', [Validators.required]],
-      phoneNumber: ['', Validators.compose([Validators.required, Validators.minLength(9)])],
-      address: ['', [Validators.required]],
-      channel: ['', [Validators.required]],
-      discount: ['', [Validators.required]],
-      shipFee: ['', [Validators.required]],
-      realShipFee: ['', [Validators.required]],
+      date: ['', [Validators.required]],
+      value: ['', [Validators.required]],
+      method: ['', [Validators.required]]
     })
   }
 
@@ -31,7 +28,7 @@ export class OrderModalComponent implements OnInit {
     if (this.myForm.invalid) {
       return;
     }
-    this.modal.destroy(this.myForm.value);
+    this.modal.destroy(this.myForm.value)
   }
   handleCancel() {
     this.modal.destroy()
@@ -46,6 +43,4 @@ export class OrderModalComponent implements OnInit {
       }
     }
   }
-
-
 }
