@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ZorroAntdModule } from '../zorro-antd.module';
 import { ActionButtonComponent } from './action-button/action-button.component';
 import { ActionTableButtonComponent } from './action-table-button/action-table-button.component';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   imports: [
@@ -11,11 +12,13 @@ import { ActionTableButtonComponent } from './action-table-button/action-table-b
   ],
   exports: [
     ActionButtonComponent,
-    ActionTableButtonComponent
+    ActionTableButtonComponent,
+    UploadImageComponent
   ],
   declarations: [
     ActionButtonComponent,
-    ActionTableButtonComponent
+    ActionTableButtonComponent,
+    UploadImageComponent
   ]
 })
 export class ComponentsModule { }

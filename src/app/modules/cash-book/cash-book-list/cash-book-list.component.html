@@ -1,9 +1,14 @@
 <action-button (dispatch)="onDispatch($event)"></action-button>
 <nz-card class="mt-3 mb-5">
   <div class="d-flex justify-content-end">
-    <button class="plus-data"><i nz-icon nzType="plus-circle" nzTheme="outline"></i>Cộng quỹ</button>
+    <div class="d-flex add" *ngIf="isVisible">
+      <nz-input-number></nz-input-number>
+      <button class="plus-data">Lưu</button>
+    </div>
     <div class="mx-4 data">
-      <label> Quỹ đầu kì</label>
+      <label class="cursor-pointer" (click)="isVisible = !isVisible"><i nz-icon nzType="plus-circle" nzTheme="fill"></i>
+        Quỹ
+        đầu kì</label>
       <div class="turquoise">30,000đ</div>
     </div>
     <div class="mx-4 data">

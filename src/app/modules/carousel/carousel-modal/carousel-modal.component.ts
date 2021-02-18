@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-carousel-modal',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modal: NzModalRef) { }
 
   ngOnInit() {
   }
-
+  handleOk() {
+  }
+  handleCancel() {
+    this.modal.destroy();
+  }
 }

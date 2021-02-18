@@ -4,6 +4,15 @@
       </ng-template>
       <div class="col-12 col-md-4">
         <nz-form-item>
+          <nz-form-label nzRequired>Danh mục</nz-form-label>
+          <nz-form-control [nzErrorTip]="message">
+            <input formControlName="name" nz-input (ngModelChange)="onChange($event)" [nzAutocomplete]="auto">
+            <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col-12 col-md-4">
+        <nz-form-item>
           <nz-form-label nzRequired>Tên</nz-form-label>
           <nz-form-control [nzErrorTip]="message">
             <input formControlName="name" nz-input>
@@ -18,7 +27,7 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-6 col-md-3">
         <nz-form-item>
           <nz-form-label nzRequired>Tồn kho</nz-form-label>
           <nz-form-control [nzErrorTip]="message">
@@ -26,7 +35,7 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-6 col-md-3">
         <nz-form-item>
           <nz-form-label nzRequired>Giá vốn</nz-form-label>
           <nz-form-control [nzErrorTip]="message">
@@ -34,7 +43,7 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-6 col-md-3">
         <nz-form-item>
           <nz-form-label nzRequired>Giá phát sinh</nz-form-label>
           <nz-form-control [nzErrorTip]="message">
@@ -42,7 +51,7 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-      <div class="col-12 col-md-4">
+      <div class="col-6 col-md-3">
         <nz-form-item>
           <nz-form-label nzRequired>Giá bán</nz-form-label>
           <nz-form-control [nzErrorTip]="message">

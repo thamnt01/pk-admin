@@ -8,6 +8,9 @@ import { NzModalRef } from 'ng-zorro-antd/modal';
   styleUrls: ['./product-details-modal.component.scss']
 })
 export class ProductDetailsModalComponent implements OnInit {
+  inputValue?: string;
+  filteredOptions: string[] = [];
+  options = ['Burns Bay Road', 'Downing Street', 'Wall Street'];
   myForm: FormGroup;
   constructor(
     private modal: NzModalRef,
@@ -19,11 +22,15 @@ export class ProductDetailsModalComponent implements OnInit {
         code: ['', [Validators.required]],
         type: ['', [Validators.required]],
         inventory: ['', [Validators.required]],
-      }
-    )
+        // image: ['', [Validators.required]],
+      });
+    this.filteredOptions = this.options;
   }
 
   ngOnInit() {
+  }
+  onChange(value: string): void {
+    this.filteredOptions = this.options.filter(option => option.toLowerCase().indexOf(value.toLowerCase()) !== -1);
   }
   handleOk() {
     this.validateForm(this.myForm);

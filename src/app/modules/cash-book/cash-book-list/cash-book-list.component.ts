@@ -8,7 +8,7 @@ import { CashBookModalComponent } from '../cash-book-modal/cash-book-modal.compo
   styleUrls: ['./cash-book-list.component.scss']
 })
 export class CashBookListComponent implements OnInit {
-  isDisplay = false;
+  isVisible = false;
   listOfData = [
     {
       code: 'MT123',

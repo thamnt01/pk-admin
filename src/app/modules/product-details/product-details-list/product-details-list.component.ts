@@ -53,8 +53,13 @@ export class ProductDetailsListComponent implements OnInit {
       nzFooter: null,
       nzClassName: 'modal-md',
     });
+    const instance = modal.getContentComponent();
+    instance.myForm.patchValue(value);
     modal.afterClose.subscribe(result => {
-      if (result !== undefined) {
+      if (result === undefined) {
+        return;
+      }
+      if (value) {
         const index = this.listOfData.indexOf(value);
         this.listOfData[index] = result;
         this.listOfData = [...this.listOfData]
@@ -73,6 +78,7 @@ export class ProductDetailsListComponent implements OnInit {
         this.listOfData = this.listOfData.filter(x => x !== data);
         break;
       case 'edit':
+        this.createModal(data)
         break;
       case 'search':
         this.listOfData = this.cloneData.filter(x => x.name.toLocaleLowerCase().includes(data.toLocaleLowerCase()))

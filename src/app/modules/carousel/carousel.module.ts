@@ -4,12 +4,14 @@ import { SharedModule } from 'src/app/_shared/shared.module';
 import { CarouselRoutes } from './carousel.routing';
 import { CarouselListComponent } from './carousel-list/carousel-list.component';
 import { CarouselModalComponent } from './carousel-modal/carousel-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    CarouselRoutes
+    CarouselRoutes,
+    ReactiveFormsModule
   ],
   declarations: [
     CarouselListComponent,

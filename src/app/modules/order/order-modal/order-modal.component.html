@@ -7,7 +7,8 @@
        <nz-form-item>
          <nz-form-label nzRequired>Tên</nz-form-label>
          <nz-form-control [nzErrorTip]="message">
-           <input nz-input formControlName="name">
+           <input nz-input formControlName="name" [nzAutocomplete]="auto" (ngModelChange)="onChange($event)">
+           <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
          </nz-form-control>
        </nz-form-item>
      </div>
@@ -15,7 +16,8 @@
        <nz-form-item>
          <nz-form-label nzRequired>Số điện thoại</nz-form-label>
          <nz-form-control [nzErrorTip]="message">
-           <input nz-input formControlName="phoneNumber">
+           <input nz-input formControlName="phoneNumber" [nzAutocomplete]="auto" (ngModelChange)="onChange($event)">
+           <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
          </nz-form-control>
        </nz-form-item>
      </div>
@@ -43,7 +45,8 @@
      <nz-form-item>
        <nz-form-label nzRequired>Sản phẩm</nz-form-label>
        <nz-form-control>
-         <input type="text" nz-input />
+         <input nz-input formControlName="name" [nzAutocomplete]="auto" (ngModelChange)="onChange($event)">
+         <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
        </nz-form-control>
      </nz-form-item>
      <div class="col-12 d-flex justify-content-end my-2">
